@@ -59,7 +59,7 @@ class _DailyPageState extends State<DailyPage> {
                     description: 'Hdfc bank transfer **** 456 testing 123 23233',
                     date: 'May 22',
                     isCredited: (index % 2 == 0) ? false : true,
-                    amount: (index % 2 == 1) ? '500' : '1000',
+                    amount: (index % 2 == 1) ? 500 : 1000,
                     margin: EdgeInsets.only(left: 10.0, right: 10.0, bottom: 15.0),
                     onPressed: () {
                       print(index);

@@ -7,7 +7,7 @@ import 'package:expense_manager/utilities/calendar_utility.dart';
 class MonthYearPicker extends StatelessWidget {
   final ValueChanged<DateTime> onSelected;
 
-  ScrollController _controller = new ScrollController();
+  final ScrollController _controller = new ScrollController();
   DateTime currentDateYear = new DateTime.now();
   String currentMonth = new DateFormat("MMM").format(DateTime.now());
   DateTime _selectedDate = new DateTime.now();
@@ -93,13 +93,12 @@ class MonthYearPicker extends StatelessWidget {
   Widget build(BuildContext context) {
     _afterLayout();
     return Container(
-      height: 110.0,
-      padding: EdgeInsets.only(bottom: 15.0),
+      height: 90.0,
+      padding: EdgeInsets.only(bottom: 10.0),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Container(
-            padding: EdgeInsets.only(top: 15.0, bottom: 20.0, left: 10.0, right: 10.0),
+            padding: EdgeInsets.only(top: 10.0, bottom: 5.0, left: 10.0, right: 10.0),
             child: StatefulBuilder(
               builder: (BuildContext context, StateSetter setState) {
                 return GestureDetector(
@@ -107,9 +106,17 @@ class MonthYearPicker extends StatelessWidget {
                     _yearPickerModalSheet(context, setState);
                   },
                   child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      Text(new DateFormat('yyyy').format(currentDateYear), style: TextStyle(fontSize: 18.0)),
-                      Icon(Icons.keyboard_arrow_down)
+                      Text(
+                          new DateFormat('yyyy').format(currentDateYear),
+                          style: TextStyle(
+                              fontSize: 18.0,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.lightBlue
+                          )
+                      ),
+                      Icon(Icons.keyboard_arrow_down, size: 25.0)
                     ],
                   ),
                 );

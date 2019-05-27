@@ -8,7 +8,7 @@ class TransactionCard extends StatelessWidget {
   final String description;
   final String date;
   final bool isCredited;
-  final String amount;
+  final dynamic amount;
   final BoxDecoration decoration;
   final EdgeInsets margin;
   final VoidCallback onPressed;
@@ -97,7 +97,7 @@ class TransactionCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.end,
               children: <Widget>[
                 Amount(
-                  value: (isCredited ? '+' : '-') + amount,
+                  value: amount,
                   iconSize: 16.0,
                   iconColor: isCredited ? Colors.green : Colors.redAccent,
                   valuePadding: EdgeInsets.only(left: 1.0),

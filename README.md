@@ -1,4 +1,4 @@
-# expense_manager
+# Budget Tracker
 
 An Expense management mobile application.
 
