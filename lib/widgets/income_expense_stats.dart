@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:expense_manager/constants.dart';
+import 'package:expense_manager/enums.dart';
 import 'package:expense_manager/widgets/amount.dart';
-
-enum IEStatTypes {
-  income,
-  expense
-}
 
 class IncomeExpenseStats extends StatelessWidget {
 

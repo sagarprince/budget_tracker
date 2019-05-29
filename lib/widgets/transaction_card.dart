@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
-//import 'package:expense_manager/constants.dart';
+import 'package:intl/intl.dart';
+import 'package:expense_manager/enums.dart';
 import 'package:expense_manager/widgets/amount.dart';
 
 class TransactionCard extends StatelessWidget {
   final dynamic category;
   final String title;
   final String description;
-  final String date;
-  final bool isCredited;
+  final DateTime date;
+  final TransactionTypes type;
   final dynamic amount;
   final BoxDecoration decoration;
   final EdgeInsets margin;
@@ -19,7 +20,7 @@ class TransactionCard extends StatelessWidget {
     @required this.title,
     @required this.description,
     @required this.date,
-    @required this.isCredited,
+    @required this.type,
     @required this.amount,
     this.decoration = const BoxDecoration(
         color: Colors.transparent,
@@ -38,7 +39,7 @@ class TransactionCard extends StatelessWidget {
         assert(title != null),
         assert(description != null),
         assert(date != null),
-        assert(isCredited != null),
+        assert(type != null),
         assert(amount != null),
         super(key: key);
 
@@ -99,12 +100,12 @@ class TransactionCard extends StatelessWidget {
                 Amount(
                   value: amount,
                   iconSize: 16.0,
-                  iconColor: isCredited ? Colors.green : Colors.redAccent,
+                  iconColor: type == TransactionTypes.credited ? Colors.green : Colors.redAccent,
                   valuePadding: EdgeInsets.only(left: 1.0),
-                  valueStyle: TextStyle(fontSize: 18.0, color: isCredited ? Colors.green : Colors.redAccent),
+                  valueStyle: TextStyle(fontSize: 18.0, color: type == TransactionTypes.credited ? Colors.green : Colors.redAccent),
                 ),
                 SizedBox(height: 5.0),
-                Text(date, style: TextStyle(fontSize: 13.0))
+                Text(DateFormat('MMM dd').format(date), style: TextStyle(fontSize: 13.0))
               ],
             )
           ],

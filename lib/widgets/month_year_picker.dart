@@ -9,7 +9,7 @@ class MonthYearPicker extends StatelessWidget {
 
   final ScrollController _controller = new ScrollController();
   DateTime currentDateYear = new DateTime.now();
-  String currentMonth = new DateFormat("MMM").format(DateTime.now());
+  String currentMonth = new DateFormat("MMMM").format(DateTime.now());
   DateTime _selectedDate = new DateTime.now();
 
   MonthYearPicker({Key key, @required this.onSelected}) :
